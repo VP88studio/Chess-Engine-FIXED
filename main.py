@@ -1,3 +1,8 @@
+'''github save if my dumbass cant remember
+git add .
+git commit -m "Fixing repo and adding latest updates"
+git push origin main'''
+
 import pygame, math, time, sys, os
 WIDTH = 1000
 HEIGHT = 1000
