@@ -12,8 +12,9 @@ running = True
 #load imgs
 chessoldimg = pygame.image.load(os.path.join("Assets/gameboard.png"))
 chessimg = pygame.transform.scale(chessoldimg, (1000, 1000))
-wkingoldimg = pygame.image.load(os.path.join("Pieces/white/whiteking.svg"))
+wkingoldimg = pygame.image.load(os.path.join("Pieces/white/whiteking.png"))
 wkingimg = pygame.transform.scale(wkingoldimg, (100, 100))
+wqueenoldimg = pygame.image.load(os.path.join("Pieces/white/whitequeen.png"))
 
 #chess board nested list
 
