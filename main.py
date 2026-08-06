@@ -29,11 +29,26 @@ chess_board = [
     [None, None, None, None, None, None, None, None],
 ]
 
+<<<<<<< HEAD
 for board_y in range(8):
     for board_x in range(8):
         square_y = 13 + (125 * board_y)
         square_x = 13 + (125 * board_x)
 
+=======
+#chess board pos allocation
+                        #Cords Here
+chess_board[1][0] = 13, 13
+chess_board[1][1] = 138, 13
+chess_board[1][2] = 263, 13
+chess_board[1][3] = 350, 13
+chess_board[1][4] = 450, 13
+chess_board[1][5] = 550, 13
+chess_board[1][6] = 650, 13
+chess_board[1][7] = 750, 13
+print('x', chess_board[1][0][0])
+print('y', chess_board[1][0][1])
+>>>>>>> 4ac4b8e (commit)
 
 #Peice Classes
 
@@ -42,8 +57,13 @@ class pawn:
         self
 #testing area
 test_bloc = {
+<<<<<<< HEAD
     'x': chess_board[2][1][0],
     'y': chess_board[2][1][1],
+=======
+    'x': chess_board[1][2][0],
+    'y': chess_board[1][2][1],
+>>>>>>> 4ac4b8e (commit)
     'width': 100,
     'height': 100,
     'color': (0, 0, 0)
