@@ -12,9 +12,18 @@ running = True
 #load imgs
 chessoldimg = pygame.image.load(os.path.join("Assets/gameboard.png"))
 chessimg = pygame.transform.scale(chessoldimg, (1000, 1000))
+#white pieces
 wkingoldimg = pygame.image.load(os.path.join("Pieces/white/whiteking.png"))
 wkingimg = pygame.transform.scale(wkingoldimg, (100, 100))
 wqueenoldimg = pygame.image.load(os.path.join("Pieces/white/whitequeen.png"))
+wqueenimg = pygame.transform.scale(wqueenoldimg, (100, 100))
+wleftbishopoldimg = pygame.image.load(os.path.join("Pieces/white/whitebishop.png"))
+wleftbishopimg = pygame.transform.scale(wleftbishopoldimg, (100, 100))
+wrightbishopoldimg = pygame.image.load(os.path.join("Pieces/white/whitebishop.png"))
+wrightbishopimg = pygame.transform.scale(wrightbishopoldimg, (100, 100))
+wleftknightoldimg = pygame.image.load(os.path.join("Pieces/white/whiteknight.png"))
+wleftknightimg = pygame.transform.scale(wleftknightoldimg, (100, 100))
+wrightknightoldimg = pygame.image.load(os.path.join("Pieces/white/whiteknight.png"))
 
 #chess board nested list
 
@@ -29,26 +38,13 @@ chess_board = [
     [None, None, None, None, None, None, None, None],
 ]
 
-<<<<<<< HEAD
 for board_y in range(8):
     for board_x in range(8):
         square_y = 13 + (125 * board_y)
         square_x = 13 + (125 * board_x)
 
-=======
-#chess board pos allocation
-                        #Cords Here
-chess_board[1][0] = 13, 13
-chess_board[1][1] = 138, 13
-chess_board[1][2] = 263, 13
-chess_board[1][3] = 350, 13
-chess_board[1][4] = 450, 13
-chess_board[1][5] = 550, 13
-chess_board[1][6] = 650, 13
-chess_board[1][7] = 750, 13
-print('x', chess_board[1][0][0])
-print('y', chess_board[1][0][1])
->>>>>>> 4ac4b8e (commit)
+        chess_board[board_y][board_x] = (square_x, square_y)
+
 
 #Peice Classes
 
@@ -57,13 +53,8 @@ class pawn:
         self
 #testing area
 test_bloc = {
-<<<<<<< HEAD
     'x': chess_board[2][1][0],
     'y': chess_board[2][1][1],
-=======
-    'x': chess_board[1][2][0],
-    'y': chess_board[1][2][1],
->>>>>>> 4ac4b8e (commit)
     'width': 100,
     'height': 100,
     'color': (0, 0, 0)
