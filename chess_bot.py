@@ -106,7 +106,7 @@ class chess:
                         case 0:
                             if self.board[mx][my] == 0:
                                 self.board[mx][my] = self.board[px][py]
-                                self.board[px][py] = 0 combined_numbers = "".join(map(str, save_number
+                                self.board[px][py] = 0
                             else:
                                 raise BadOptionError(" Piece in way")
                 elif my == py-2 and py == 6:
