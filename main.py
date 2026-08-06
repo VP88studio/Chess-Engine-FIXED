@@ -32,7 +32,7 @@ chess_board = [
                         #Cords Here
 chess_board[1][0] = 13, 13
 chess_board[1][1] = 138, 13
-chess_board[1][2] = 250, 13
+chess_board[1][2] = 263, 13
 chess_board[1][3] = 350, 13
 chess_board[1][4] = 450, 13
 chess_board[1][5] = 550, 13
@@ -48,8 +48,8 @@ class pawn:
         self
 #testing area
 test_bloc = {
-    'x': chess_board[1][1][0],
-    'y': chess_board[1][1][1],
+    'x': chess_board[1][2][0],
+    'y': chess_board[1][2][1],
     'width': 100,
     'height': 100,
     'color': (0, 0, 0)
