@@ -174,13 +174,6 @@ pieces = {
 }
 
 
-#Peice Classes
-
-class pawn:
-    def ___init___(self):
-        self
-
-
 while running:
     
     gameboard.blit(chessimg, (0,0))
