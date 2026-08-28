@@ -55,6 +55,9 @@ class chess:
         
     def _intState(x):
         return (-1 if x < 0 else (1 if x > 0 else 0))
+    
+    def _boolInt(b):
+        return 1 if b else -1
         
     def move(self, move):
         
@@ -151,7 +154,7 @@ class chess:
                     else:
                         raise BadOptionError("Illigal move")
                     
-                case 3:
+                case 4:
                     if 0 <= mx <= 7 and 0 <= my <= 7: # Destination in Bounds
                         match (self._intState(mx-px), self._intState(my-py)):
                             case (1, 0): # Going left
@@ -201,7 +204,7 @@ class chess:
                             case _:
                                 raise BadOptionError("Illigal move")
                             
-                case -3:
+                case -4:
                     if 0 <= mx <= 7 and 0 <= my <= 7: # Destination in Bounds
                         match (self._intState(mx-px), self._intState(my-py)):
                             case (1, 0): # Going left
@@ -251,3 +254,19 @@ class chess:
                                 self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                             case _:
                                 raise BadOptionError("Illigal move")
+                            
+                case 3:
+                    if 0 <= mx <= 7 and 0 <= my <= 7:
+                        dx = mx-px
+                        dy = my-py
+                        
+                        match ():
+                            case (1, 1): # Going left
+                                if [self.board[px+1+i][py+1+i] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]: # Any pieces in way
+                                    if self.board[mx][my] <= 0: # Is it taking the correct piece
+                                        self.board[mx][my] = self.board[px][py] # Place piece at that point
+                                        self.board[px][py] = 0
+                                    else:
+                                        raise BadOptionError(" Piece in way")
+                                else:
+                                    raise BadOptionError("Illigal move")
