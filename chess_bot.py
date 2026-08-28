@@ -90,102 +90,83 @@ class chess:
                                     raise BadOptionError(" Piece in way")
                     elif my == py+2 and py == 1: # Pawn is moving 2 spaces
                         if self.board[mx][my] == 0:
-        match piece:
-            case 0: raise ValueError("No piece at start point")
-            case 1: # White Pawn
-                if my == py+1: # Pawn moves forward 1
-                    match abs(mx-px): # Check if taking piece
-                        case 1: # Is taking piece
-                            if self.board[mx][my] < 0: # Is there a black piece at the point its going to
-                                self.board[mx][my] = self.board[px][py] # Place piece at that point
-                                self.board[px][py] = 0
-                            else: # No piece at taking point
-                                raise BadOptionError("Illigal move")
-                        case 0: # Not taking piece
-                            if self.board[mx][my] == 0: # Is there a piece in the way
-                                self.board[mx][my] = self.board[px][py] # Place piece at that point
-                                self.board[px][py] = 0
-                            else: # Piece in the way
-                                raise BadOptionError(" Piece in way")
-                elif my == py+2 and py == 1: # Pawn is moving 2 spaces
-                    if self.board[mx][my] == 0:
-                        self.board[mx][my] = self.board[px][py]
-                        self.board[px][py] = 0
-                    else:
-                        raise BadOptionError(" Piece in way")
-                else:
-                    raise BadOptionError("Illigal move")
-                    
-            case -1:
-                if my == py-1:
-                    match abs(mx-px):
-                        case 1:
-                            if self.board[mx][my] > 0:
-                                self.board[mx][my] = self.board[px][py]
-                                self.board[px][py] = 0
-                            else:
-                                raise BadOptionError("Illigal move")
-                        case 0:
-                            if self.board[mx][my] == 0:
-                                self.board[mx][my] = self.board[px][py]
-                                self.board[px][py] = 0
-                            else:
-                                raise BadOptionError(" Piece in way")
-                elif my == py-2 and py == 6:
-                    if self.board[mx][my] == 0:
-                        self.board[mx][my] = self.board[px][py]
-                        self.board[px][py] = 0
-                    else:
-                        raise BadOptionError(" Piece in way")
-                else:
-                    raise BadOptionError("Illigal move")
-                
-            case 2:
-                if sorted((abs(px-mx), abs(py-my))) == (1, 2):
-                    if 0 <= mx <= 7 and 0 <= my <= 7:
-                        if self.board[mx][my] >= 0:
                             self.board[mx][my] = self.board[px][py]
                             self.board[px][py] = 0
                         else:
                             raise BadOptionError(" Piece in way")
                     else:
-                        raise BadOptionError(" Piece in way")
-                else:
-                    raise BadOptionError("Illigal move")
+                        raise BadOptionError("Illigal move")
+                        
+                case -1:
+                    if my == py-1:
+                        match abs(mx-px):
+                            case 1:
+                                if self.board[mx][my] > 0:
+                                    self.board[mx][my] = self.board[px][py]
+                                    self.board[px][py] = 0
+                                else:
+                                    raise BadOptionError("Illigal move")
+                            case 0:
+                                if self.board[mx][my] == 0:
+                                    self.board[mx][my] = self.board[px][py]
+                                    self.board[px][py] = 0
+                                else:
+                                    raise BadOptionError(" Piece in way")
+                    elif my == py-2 and py == 6:
+                        if self.board[mx][my] == 0:
+                            self.board[mx][my] = self.board[px][py]
+                            self.board[px][py] = 0
+                        else:
+                            raise BadOptionError(" Piece in way")
+                    else:
+                        raise BadOptionError("Illigal move")
                     
-            case -1:
-                if my == py-1:
-                    match abs(mx-px):
-                        case 1:
-                            if self.board[mx][my] > 0:
-                                self.board[mx][my] = self.board[px][py]
-                                self.board[px][py] = 0
-                            else:
-                                raise BadOptionError("Illigal move")
-                        case 0:
-                            if self.board[mx][my] == 0:
+                case 2:
+                    if sorted((abs(px-mx), abs(py-my))) == (1, 2):
+                        if 0 <= mx <= 7 and 0 <= my <= 7:
+                            if self.board[mx][my] >= 0:
                                 self.board[mx][my] = self.board[px][py]
                                 self.board[px][py] = 0
                             else:
                                 raise BadOptionError(" Piece in way")
-                elif my == py-2 and py == 6:
-                    if self.board[mx][my] == 0:
-                        self.board[mx][my] = self.board[px][py]
-                        self.board[px][py] = 0
+                        else:
+                            raise BadOptionError(" Piece in way")
                     else:
-                        raise BadOptionError(" Piece in way")
-                else:
-                    raise BadOptionError("Illigal move")
-                
-            case 2:
-                if sorted((abs(px-mx), abs(py-my))) == (1, 2):
-                    if 0 <= mx <= 7 and 0 <= my <= 7:
-                        if self.board[mx][my] >= 0:
+                        raise BadOptionError("Illigal move")
+                        
+                case -1:
+                    if my == py-1:
+                        match abs(mx-px):
+                            case 1:
+                                if self.board[mx][my] > 0:
+                                    self.board[mx][my] = self.board[px][py]
+                                    self.board[px][py] = 0
+                                else:
+                                    raise BadOptionError("Illigal move")
+                            case 0:
+                                if self.board[mx][my] == 0:
+                                    self.board[mx][my] = self.board[px][py]
+                                    self.board[px][py] = 0
+                                else:
+                                    raise BadOptionError(" Piece in way")
+                    elif my == py-2 and py == 6:
+                        if self.board[mx][my] == 0:
                             self.board[mx][my] = self.board[px][py]
                             self.board[px][py] = 0
+                        else:
+                            raise BadOptionError(" Piece in way")
+                    else:
+                        raise BadOptionError("Illigal move")
+                    
+                case 2:
+                    if sorted((abs(px-mx), abs(py-my))) == (1, 2):
+                        if 0 <= mx <= 7 and 0 <= my <= 7:
+                            if self.board[mx][my] >= 0:
+                                self.board[mx][my] = self.board[px][py]
+                                self.board[px][py] = 0
+                            else:
+                                raise BadOptionError("Illigal move")
                         else:
                             raise BadOptionError("Illigal move")
                     else:
                         raise BadOptionError("Illigal move")
-                else:
-                    raise BadOptionError("Illigal move")
