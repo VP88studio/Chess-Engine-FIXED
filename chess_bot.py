@@ -187,18 +187,17 @@ class chess:
                                 else:
                                     raise BadOptionError("Illigal move")
                             case (0, -1): # Going Up
-                                self.board.reverse()
+                                self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                 if [self.board[px][py+1+i] for i in range ((py-my)-2)] == [0 for _ in range ((py-my)-2)]:
                                     if self.board[mx][my] <= 0:
                                         self.board[mx][my] = self.board[px][py]
                                         self.board[px][py] = 0
                                     else:
-                                        self.board.reverse()
+                                        self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                         raise BadOptionError(" Piece in way")
                                 else:
-                                    self.board.reverse()
+                                    self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                     raise BadOptionError("Illigal move")
-                                self.board.reverse()
                             case _:
                                 raise BadOptionError("Illigal move")
                             
@@ -238,17 +237,17 @@ class chess:
                                 else:
                                     raise BadOptionError("Illigal move")
                             case (0, -1): # Going Up
-                                self.board.reverse()
+                                self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                 if [self.board[px][py+1+i] for i in range ((py-my)-2)] == [0 for _ in range ((py-my)-2)]:
                                     if self.board[mx][my] >= 0:
                                         self.board[mx][my] = self.board[px][py]
                                         self.board[px][py] = 0
                                     else:
-                                        self.board.reverse()
+                                        self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                         raise BadOptionError(" Piece in way")
                                 else:
-                                    self.board.reverse()
+                                    self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                     raise BadOptionError("Illigal move")
-                                self.board.reverse()
+                                self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                             case _:
                                 raise BadOptionError("Illigal move")
