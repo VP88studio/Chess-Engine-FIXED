@@ -8,8 +8,8 @@ class chess:
         # Positive: White
         # Negative: Black
         
-        # 1: Pawn
         # 0: Nothing
+        # 1: Pawn
         # 2: Knight
         # 3: Bishopit 
         # 4: Rook
@@ -121,16 +121,17 @@ class chess:
                     else:
                         raise BadOptionError("Illigal move")
                     
+                    
                 case 2:
-                    if sorted((abs(px-mx), abs(py-my))) == (1, 2):
-                        if 0 <= mx <= 7 and 0 <= my <= 7:
-                            if self.board[mx][my] >= 0:
-                                self.board[mx][my] = self.board[px][py]
+                    if sorted((abs(px-mx), abs(py-my))) == (1, 2): # If knight is moving 1 square in one direction and 2 in the other
+                        if 0 <= mx <= 7 and 0 <= my <= 7: # Is it in Bounds?
+                            if self.board[mx][my] <= 0: # No piece in way/Takeable piece in way
+                                self.board[mx][my] = self.board[px][py] # Place piece at that point
                                 self.board[px][py] = 0
                             else:
                                 raise BadOptionError(" Piece in way")
                         else:
-                            raise BadOptionError(" Piece in way")
+                            raise BadOptionError(" Out of bounds")
                     else:
                         raise BadOptionError("Illigal move")
                         
@@ -161,6 +162,19 @@ class chess:
                 case 2:
                     if sorted((abs(px-mx), abs(py-my))) == (1, 2):
                         if 0 <= mx <= 7 and 0 <= my <= 7:
+                            if self.board[mx][my] <= 0:
+                                self.board[mx][my] = self.board[px][py]
+                                self.board[px][py] = 0
+                            else:
+                                raise BadOptionError("Illigal move")
+                        else:
+                            raise BadOptionError("Illigal move")
+                    else:
+                        raise BadOptionError("Illigal move")
+                
+                case -2:
+                    if sorted((abs(px-mx), abs(py-my))) == (1, 2):
+                        if 0 <= mx <= 7 and 0 <= my <= 7:
                             if self.board[mx][my] >= 0:
                                 self.board[mx][my] = self.board[px][py]
                                 self.board[px][py] = 0
@@ -170,3 +184,4 @@ class chess:
                             raise BadOptionError("Illigal move")
                     else:
                         raise BadOptionError("Illigal move")
+                    
