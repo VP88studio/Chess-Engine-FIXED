@@ -269,7 +269,7 @@ class chess:
                                             raise BadOptionError(" Piece in way")
                                     else:
                                         raise BadOptionError("Illigal move")
-                                case (1, -1): # Going Up Right
+                                case (1, -1): # Going Up Left
                                     self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                     my = 7-my
                                     py = 7-py
@@ -283,4 +283,19 @@ class chess:
                                             raise BadOptionError(" Piece in way")
                                     else:
                                         self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
+                                        raise BadOptionError("Illigal move")
+                                case (-1, 1): # Going Down Right
+                                    self.board.reverse()
+                                    mx = 7-mx
+                                    px = 7-px
+                                    
+                                    if [self.board[px+1+i][py+1+i] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]: # Any pieces in way
+                                        self.board.reverse()
+                                        if self.board[mx][my] <= 0: # Is it taking the correct piece
+                                            self.board[mx][my] = self.board[px][py] # Place piece at that point
+                                            self.board[px][py] = 0
+                                        else:
+                                            raise BadOptionError(" Piece in way")
+                                    else:
+                                        self.board.reverse()
                                         raise BadOptionError("Illigal move")
