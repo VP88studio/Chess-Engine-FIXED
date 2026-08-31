@@ -215,6 +215,8 @@ class chess:
                                     raise BadOptionError("Illigal move")
                             case (-1, 0): # Going Right
                                 self.board.reverse()
+                                mx = 7-mx
+                                px = 7-px
                                 if [self.board[px+1+i][py] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]:
                                     if self.board[mx][my] >= 0:
                                         self.board[mx][my] = self.board[px][py]
