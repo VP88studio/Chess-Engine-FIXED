@@ -213,7 +213,7 @@ class chess:
                                         raise BadOptionError(" Piece in way")
                                 else:
                                     raise BadOptionError("Illigal move")
-                            case (-1, 0):
+                            case (-1, 0): # Going Right
                                 self.board.reverse()
                                 if [self.board[px+1+i][py] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]:
                                     if self.board[mx][my] >= 0:
@@ -227,7 +227,7 @@ class chess:
                                     raise BadOptionError("Illigal move")
                                 self.board.reverse()
                             
-                            case (0, 1):
+                            case (0, 1): # Going Down
                                 if [self.board[px][py+1+i] for i in range ((py-my)-2)] == [0 for _ in range ((py-my)-2)]:
                                     if self.board[mx][my] >= 0:
                                         self.board[mx][my] = self.board[px][py]
@@ -237,6 +237,8 @@ class chess:
                                 else:
                                     raise BadOptionError("Illigal move")
                             case (0, -1): # Going Up
+                                my = 7-my
+                                py = 7-py
                                 self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                 if [self.board[px][py+1+i] for i in range ((py-my)-2)] == [0 for _ in range ((py-my)-2)]:
                                     if self.board[mx][my] >= 0:
@@ -256,8 +258,7 @@ class chess:
                     if 0 <= mx <= 7 and 0 <= my <= 7:
                         dx = mx-px
                         dy = my-py
-                        if abs(dx) == abs(dy):
-                            
+                        if abs(dx) == abs(dy): # Going diagonally                            
                             match (self._intState(dx), self._intState(dy)):
                                 case (1, 1): # Going Down left
                                     if [self.board[px+1+i][py+1+i] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]: # Any pieces in way
@@ -267,4 +268,19 @@ class chess:
                                         else:
                                             raise BadOptionError(" Piece in way")
                                     else:
+                                        raise BadOptionError("Illigal move")
+                                case (1, -1): # Going Up Right
+                                    self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
+                                    my = 7-my
+                                    py = 7-py
+                                    
+                                    if [self.board[px+1+i][py+1+i] for i in range ((px-mx)-2)] == [0 for _ in range ((px-mx)-2)]: # Any pieces in way
+                                        self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
+                                        if self.board[mx][my] <= 0: # Is it taking the correct piece
+                                            self.board[mx][my] = self.board[px][py] # Place piece at that point
+                                            self.board[px][py] = 0
+                                        else:
+                                            raise BadOptionError(" Piece in way")
+                                    else:
+                                        self.board = [[self.board[7-x] for x in range (7)] for _ in range (7)]
                                         raise BadOptionError("Illigal move")
