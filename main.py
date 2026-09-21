@@ -38,53 +38,105 @@ chessimg = pygame.transform.scale(chessoldimg, (1000, 1000))
 #King
 wkingoldimg = pygame.image.load(os.path.join("Pieces/white/whiteking.png"))
 wkingimg = pygame.transform.scale(wkingoldimg, (100, 100))
-
 #Queen
 wqueenoldimg = pygame.image.load(os.path.join("Pieces/white/whitequeen.png"))
 wqueenimg = pygame.transform.scale(wqueenoldimg, (100, 100))
-
 #Bishop
 wbishopoldimg = pygame.image.load(os.path.join("Pieces/white/whitebishop.png"))
 wbishopimg = pygame.transform.scale(wbishopoldimg, (100, 100))
-
 #Knight
 wknightoldimg = pygame.image.load(os.path.join("Pieces/white/whiteknight.png"))
 wknightimg = pygame.transform.scale(wknightoldimg, (100, 100))
-
 #Rook
 wrookoldimg = pygame.image.load(os.path.join("Pieces/white/whiterook.png"))
 wrookimg = pygame.transform.scale(wrookoldimg, (100, 100))
-
 #Pawn
 wpawnoldimg = pygame.image.load(os.path.join("Pieces/white/whitepawn.png"))
 wpawnimg = pygame.transform.scale(wpawnoldimg, (100, 100))
-
 #Black Pieces
 #King
 bkingoldimg = pygame.image.load(os.path.join("Pieces/black/blackking.png"))
 bkingimg = pygame.transform.scale(bkingoldimg, (100, 100))
-
 #Queen
 bqueenoldimg = pygame.image.load(os.path.join("Pieces/black/blackqueen.png"))
 bqueenimg = pygame.transform.scale(bqueenoldimg, (100, 100))
-
 #Bishop
 bbishopoldimg = pygame.image.load(os.path.join("Pieces/black/blackbishop.png"))
 bbishopimg = pygame.transform.scale(bbishopoldimg, (100, 100))
-
 #Knight
 bknightoldimg = pygame.image.load(os.path.join("Pieces/black/blackknight.png"))
 bknightimg = pygame.transform.scale(bknightoldimg, (100, 100))
-
 #Rook
 brookoldimg = pygame.image.load(os.path.join("Pieces/black/blackrook.png"))
 brookimg = pygame.transform.scale(brookoldimg, (100, 100))
-
 #Pawn
 bpawnoldimg = pygame.image.load(os.path.join("Pieces/black/blackpawn.png"))
 bpawnimg = pygame.transform.scale(bpawnoldimg, (100, 100))
-
-
+#rects
+rect_00 = pygame.Rect((chess_board[0][0]), (100, 100))
+rect_01 = pygame.Rect((chess_board[0][1]), (100, 100))
+rect_02 = pygame.Rect((chess_board[0][2]), (100, 100))
+rect_03 = pygame.Rect((chess_board[0][3]), (100, 100))
+rect_04 = pygame.Rect((chess_board[0][4]), (100, 100))
+rect_05 = pygame.Rect((chess_board[0][5]), (100, 100))
+rect_06 = pygame.Rect((chess_board[0][6]), (100, 100))
+rect_07 = pygame.Rect((chess_board[0][7]), (100, 100))
+rect_10 = pygame.Rect((chess_board[1][0]), (100, 100))
+rect_11 = pygame.Rect((chess_board[1][1]), (100, 100))
+rect_12 = pygame.Rect((chess_board[1][2]), (100, 100))
+rect_13 = pygame.Rect((chess_board[1][3]), (100, 100))
+rect_14 = pygame.Rect((chess_board[1][4]), (100, 100))
+rect_15 = pygame.Rect((chess_board[1][5]), (100, 100))
+rect_16 = pygame.Rect((chess_board[1][6]), (100, 100))
+rect_17 = pygame.Rect((chess_board[1][7]), (100, 100))
+rect_20 = pygame.Rect((chess_board[2][0]), (100, 100))
+rect_21 = pygame.Rect((chess_board[2][1]), (100, 100))
+rect_22 = pygame.Rect((chess_board[2][2]), (100, 100))
+rect_23 = pygame.Rect((chess_board[2][3]), (100, 100))
+rect_24 = pygame.Rect((chess_board[2][4]), (100, 100))
+rect_25 = pygame.Rect((chess_board[2][5]), (100, 100))
+rect_26 = pygame.Rect((chess_board[2][6]), (100, 100))
+rect_27 = pygame.Rect((chess_board[2][7]), (100, 100))
+rect_30 = pygame.Rect((chess_board[3][0]), (100, 100))
+rect_31 = pygame.Rect((chess_board[3][1]), (100, 100))
+rect_32 = pygame.Rect((chess_board[3][2]), (100, 100))
+rect_33 = pygame.Rect((chess_board[3][3]), (100, 100))
+rect_34 = pygame.Rect((chess_board[3][4]), (100, 100))
+rect_35 = pygame.Rect((chess_board[3][5]), (100, 100))
+rect_36 = pygame.Rect((chess_board[3][6]), (100, 100))
+rect_37 = pygame.Rect((chess_board[3][7]), (100, 100))
+rect_40 = pygame.Rect((chess_board[4][0]), (100, 100))
+rect_41 = pygame.Rect((chess_board[4][1]), (100, 100))
+rect_42 = pygame.Rect((chess_board[4][2]), (100, 100))
+rect_43 = pygame.Rect((chess_board[4][3]), (100, 100))
+rect_44 = pygame.Rect((chess_board[4][4]), (100, 100))
+rect_45 = pygame.Rect((chess_board[4][5]), (100, 100))
+rect_46 = pygame.Rect((chess_board[4][6]), (100, 100))
+rect_47 = pygame.Rect((chess_board[4][7]), (100, 100))
+rect_50 = pygame.Rect((chess_board[5][0]), (100, 100))
+rect_51 = pygame.Rect((chess_board[5][1]), (100, 100))
+rect_52 = pygame.Rect((chess_board[5][2]), (100, 100))
+rect_53 = pygame.Rect((chess_board[5][3]), (100, 100))
+rect_54 = pygame.Rect((chess_board[5][4]), (100, 100))
+rect_55 = pygame.Rect((chess_board[5][5]), (100, 100))
+rect_56 = pygame.Rect((chess_board[5][6]), (100, 100))
+rect_57 = pygame.Rect((chess_board[5][7]), (100, 100))
+rect_60 = pygame.Rect((chess_board[6][0]), (100, 100))
+rect_61 = pygame.Rect((chess_board[6][1]), (100, 100))
+rect_62 = pygame.Rect((chess_board[6][2]), (100, 100))
+rect_63 = pygame.Rect((chess_board[6][3]), (100, 100))
+rect_64 = pygame.Rect((chess_board[6][4]), (100, 100))
+rect_65 = pygame.Rect((chess_board[6][5]), (100, 100))
+rect_66 = pygame.Rect((chess_board[6][6]), (100, 100))
+rect_67 = pygame.Rect((chess_board[6][7]), (100, 100))
+rect_70 = pygame.Rect((chess_board[7][0]), (100, 100))
+rect_71 = pygame.Rect((chess_board[7][1]), (100, 100))
+rect_72 = pygame.Rect((chess_board[7][2]), (100, 100))
+rect_73 = pygame.Rect((chess_board[7][3]), (100, 100))
+rect_74 = pygame.Rect((chess_board[7][4]), (100, 100))
+rect_75 = pygame.Rect((chess_board[1][5]), (100, 100))
+rect_76 = pygame.Rect((chess_board[7][6]), (100, 100))
+rect_77 = pygame.Rect((chess_board[7][7]), (100, 100))
 pieces = {
     'white': {
         'king': {
@@ -172,12 +224,8 @@ pieces = {
     }
     
 }
-
-
-while running:
-    
+def sendtopos():
     gameboard.blit(chessimg, (0,0))
-    #white pieces temp
     gameboard.blit(pieces['white']['king']['scale'], pieces['white']['king']['startpos'])
     gameboard.blit(pieces['white']['queen']['scale'], pieces['white']['queen']['startpos'])
     gameboard.blit(pieces['white']['bishop']['scale'], pieces['white']['bishop']['startpos1'])
@@ -211,5 +259,13 @@ while running:
     gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos6'])
     gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos7'])
     gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos8'])
-    
+    #test rects
+    pygame.draw.rect(gameboard, (0,0,255), rect_34)
+sendtopos()
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    clock.tick(60)
     pygame.display.flip()
