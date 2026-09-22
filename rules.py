@@ -11,4 +11,5 @@ def blockederror():
 def kingcheckerror():
     if testilligalmove:
         print('King Is In Check')
+def pawnrules():
     
