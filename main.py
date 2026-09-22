@@ -6,6 +6,9 @@ git push origin main'''
 import pygame, math, time, sys, os
 import imgrenderer
 from PieceClasses.pawnclass import pawn
+from PieceClasses.rookclass import rook
+from PieceClasses.queenclass import queen
+from PieceClasses.kingclass import king
 WIDTH = 1000
 HEIGHT = 1000
 gameboard = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -173,31 +176,103 @@ pieces = {
     }
     
 }
+
 #bpawn1
 bpawn1 = pawn()
-bpawn1.startpos = chess_board[1][0]
+bpawn1.pos = chess_board[1][0]
+bpawn1.color = 0
 #bpawn2
 bpawn2 = pawn()
-bpawn2.startpos = chess_board[1][1]
+bpawn2.pos = chess_board[1][1]
+bpawn2.color = 0
 #bpawn3
 bpawn3 = pawn()
-bpawn3.startpos = chess_board[1][2]
+bpawn3.pos = chess_board[1][2]
+bpawn3.color = 0
 #bpawn4
 bpawn4 = pawn()
-bpawn4.startpos = chess_board[1][3]
+bpawn4.pos = chess_board[1][3]
+bpawn4.color = 0
 #bpawn5
 bpawn5 = pawn()
-bpawn5.startpos = chess_board[1][4]
+bpawn5.pos = chess_board[1][4]
+bpawn5.color = 0
 #bpawn6
 bpawn6 = pawn()
-bpawn6.startpos = chess_board[1][5]
+bpawn6.pos = chess_board[1][5]
+bpawn6.color = 0
 #bpawn7
 bpawn7 = pawn()
-bpawn7.startpos = chess_board[1][6]
+bpawn7.pos = chess_board[1][6]
+bpawn7.color = 0
 #bpawn8
 bpawn8 = pawn()
-bpawn8.startpos = chess_board[1][7]
-
+bpawn8.pos = chess_board[1][7]
+bpawn8.color = 0
+if bpawn1.color == 0:
+    bpawn1.img = imgrenderer.bpawnimg
+if bpawn2.color == 0:
+    bpawn2.img = imgrenderer.bpawnimg
+if bpawn3.color == 0:
+    bpawn3.img = imgrenderer.bpawnimg
+if bpawn4.color == 0:
+    bpawn4.img = imgrenderer.bpawnimg
+if bpawn5.color == 0:
+    bpawn5.img = imgrenderer.bpawnimg
+if bpawn6.color == 0:
+    bpawn6.img = imgrenderer.bpawnimg
+if bpawn7.color == 0:
+    bpawn7.img = imgrenderer.bpawnimg
+if bpawn8.color == 0:
+    bpawn8.img = imgrenderer.bpawnimg
+#wpawn1
+wpawn1 = pawn()
+wpawn1.pos = chess_board[1][0]
+wpawn1.color = 0
+#wpawn2
+wpawn2 = pawn()
+wpawn2.pos = chess_board[1][1]
+wpawn2.color = 0
+#wpawn3
+wpawn3 = pawn()
+wpawn3.pos = chess_board[1][2]
+wpawn3.color = 0
+#wpawn4
+wpawn4 = pawn()
+wpawn4.pos = chess_board[1][3]
+wpawn4.color = 0
+#wpawn5
+wpawn5 = pawn()
+wpawn5.pos = chess_board[1][4]
+wpawn5.color = 0
+#wpawn6
+wpawn6 = pawn()
+wpawn6.pos = chess_board[1][5]
+wpawn6.color = 0
+#wpawn7
+wpawn7 = pawn()
+wpawn7.pos = chess_board[1][6]
+wpawn7.color = 0
+#wpawn8
+wpawn8 = pawn()
+wpawn8.pos = chess_board[1][7]
+wpawn8.color = 0
+if wpawn1.color == 0:
+    wpawn1.img = imgrenderer.wpawnimg
+if wpawn2.color == 0:
+    wpawn2.img = imgrenderer.wpawnimg
+if wpawn3.color == 0:
+    wpawn3.img = imgrenderer.wpawnimg
+if wpawn4.color == 0:
+    wpawn4.img = imgrenderer.wpawnimg
+if wpawn5.color == 0:
+    wpawn5.img = imgrenderer.wpawnimg
+if wpawn6.color == 0:
+    wpawn6.img = imgrenderer.wpawnimg
+if wpawn7.color == 0:
+    wpawn7.img = imgrenderer.wpawnimg
+if wpawn8.color == 0:
+    wpawn8.img = imgrenderer.wpawnimg
 def sendtopos():
     gameboard.blit(imgrenderer.chessimg, (0,0))
     gameboard.blit(pieces['white']['king']['img'], pieces['white']['king']['startpos'])
@@ -208,14 +283,14 @@ def sendtopos():
     gameboard.blit(pieces['white']['knight']['img'], pieces['white']['knight']['startpos2'])
     gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos1'])
     gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos2'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos1'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos2'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos3'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos4'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos5'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos6'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos7'])
-    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos8'])
+    gameboard.blit(wpawn1.img, wpawn1.pos)
+    gameboard.blit(wpawn2.img, wpawn2.pos)
+    gameboard.blit(wpawn3.img, wpawn3.pos)
+    gameboard.blit(wpawn4.img, wpawn4.pos)
+    gameboard.blit(wpawn5.img, wpawn5.pos)
+    gameboard.blit(wpawn6.img, wpawn6.pos)
+    gameboard.blit(wpawn7.img, wpawn7.pos)
+    gameboard.blit(wpawn8.img, wpawn8.pos)
     #black pieces temp
     gameboard.blit(pieces['black']['king']['img'], pieces['black']['king']['startpos'])
     gameboard.blit(pieces['black']['queen']['img'], pieces['black']['queen']['startpos'])
@@ -225,16 +300,17 @@ def sendtopos():
     gameboard.blit(pieces['black']['knight']['img'], pieces['black']['knight']['startpos2'])
     gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos1'])
     gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos2'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos1'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos2'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos3'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos4'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos5'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos6'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos7'])
-    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos8'])
+    gameboard.blit(bpawn1.img, bpawn1.pos)
+    gameboard.blit(bpawn2.img, bpawn2.pos)
+    gameboard.blit(bpawn3.img, bpawn3.pos)
+    gameboard.blit(bpawn4.img, bpawn4.pos)
+    gameboard.blit(bpawn5.img, bpawn5.pos)
+    gameboard.blit(bpawn6.img, bpawn6.pos)
+    gameboard.blit(bpawn7.img, bpawn7.pos)
+    gameboard.blit(bpawn8.img, bpawn8.pos)
     #test rects
     pygame.draw.rect(gameboard, (0,0,255), rect_34)
+    print(chess_board)
 sendtopos()
 while running:
     for event in pygame.event.get():

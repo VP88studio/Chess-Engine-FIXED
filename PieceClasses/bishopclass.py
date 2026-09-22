@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from imgrenderer import loadimgs
 loadimgs()
 placeholderimg = 0
-class pawn():
+class bishopclass():
     def __init__(self):
         self.color = 3
         self.img = placeholderimg
