@@ -1,5 +1,6 @@
 import pygame, sys, math, time, badoptionerror
 from test import testilligalmove
+from Piec
 def illegalmove():
     if testilligalmove:
         print('Illegal Move!')

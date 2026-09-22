@@ -1,6 +1,7 @@
 import pygame, os
 def loadimgs():
     #load imgs
+    global chessimg, wkingimg, wqueenimg, wbishopimg, wknightimg, wrookimg, wpawnimg, bkingimg, bqueenimg, bbishopimg, bknightimg, brookimg, bpawnimg
     chessoldimg = pygame.image.load(os.path.join("Assets/gameboard.png"))
     chessimg = pygame.transform.scale(chessoldimg, (1000, 1000))
     #white pieces

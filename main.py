@@ -4,12 +4,14 @@ git commit -m "Fixing repo and adding latest updates"
 git push origin main'''
 
 import pygame, math, time, sys, os
+import imgrenderer
+from PieceClasses.pawnclass import pawn
 WIDTH = 1000
 HEIGHT = 1000
 gameboard = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 running = True
-
+imgrenderer.loadimgs()
 #chess board nested list
 
 chess_board = [
@@ -99,36 +101,30 @@ rect_77 = pygame.Rect((chess_board[7][7]), (100, 100))
 pieces = {
     'white': {
         'king': {
-            'load': wkingoldimg,
-            'scale': wkingimg,
+            'img': imgrenderer.wkingimg,
             'startpos': chess_board[7][4]
         },
         'queen': {
-            'load': wqueenoldimg,
-            'scale': wqueenimg,
+            'img': imgrenderer.wqueenimg,
             'startpos': chess_board[7][3]
         },
         'bishop': {
-            'load': wbishopoldimg,
-            'scale': wbishopimg,
+            'img': imgrenderer.wbishopimg,
             'startpos1': chess_board[7][2],
             'startpos2': chess_board[7][5]
         },
         'knight': {
-            'load': wknightoldimg,
-            'scale': wknightimg,
+            'img': imgrenderer.wknightimg,
             'startpos1': chess_board[7][1],
             'startpos2': chess_board[7][6]
         },
         'rook': {
-            'load': wrookoldimg,
-            'scale': wrookimg,
+            'img': imgrenderer.wrookimg,
             'startpos1': chess_board[7][0],
             'startpos2': chess_board[7][7]
         },
         'pawn': {
-            'load': wpawnoldimg,
-            'scale': wpawnimg,
+            'img': imgrenderer.wpawnimg,
             'startpos1': chess_board[6][0],
             'startpos2': chess_board[6][1],
             'startpos3': chess_board[6][2],
@@ -141,36 +137,30 @@ pieces = {
     },
     'black': {
         'king': {
-            'load': bkingoldimg,
-            'scale': bkingimg,
+            'img': imgrenderer.bkingimg,
             'startpos': chess_board[0][4],
         },
         'queen': {
-            'load': bqueenoldimg,
-            'scale': bqueenimg,
+            'img': imgrenderer.bqueenimg,
             'startpos':chess_board[0][3]
         },
         'bishop': {
-            'load': bbishopoldimg,
-            'scale': bbishopimg,
+            'img': imgrenderer.bbishopimg,
             'startpos1': chess_board[0][2],
             'startpos2': chess_board[0][5]
         },
         'knight': {
-            'load': bknightoldimg,
-            'scale': bknightimg,
+            'img': imgrenderer.bknightimg,
             'startpos1': chess_board[0][1],
             'startpos2': chess_board[0][6]
         },
         'rook': {
-            'load': brookoldimg,
-            'scale': brookimg,
+            'img': imgrenderer.brookimg,
             'startpos1': chess_board[0][0],
             'startpos2': chess_board[0][7]
         },
         'pawn': {
-            'load': bpawnoldimg,
-            'scale': bpawnimg,
+            'img': imgrenderer.bpawnimg,
             'startpos1': chess_board[1][0],
             'startpos2': chess_board[1][1],
             'startpos3': chess_board[1][2],
@@ -183,41 +173,66 @@ pieces = {
     }
     
 }
+#bpawn1
+bpawn1 = pawn()
+bpawn1.startpos = chess_board[1][0]
+#bpawn2
+bpawn2 = pawn()
+bpawn2.startpos = chess_board[1][1]
+#bpawn3
+bpawn3 = pawn()
+bpawn3.startpos = chess_board[1][2]
+#bpawn4
+bpawn4 = pawn()
+bpawn4.startpos = chess_board[1][3]
+#bpawn5
+bpawn5 = pawn()
+bpawn5.startpos = chess_board[1][4]
+#bpawn6
+bpawn6 = pawn()
+bpawn6.startpos = chess_board[1][5]
+#bpawn7
+bpawn7 = pawn()
+bpawn7.startpos = chess_board[1][6]
+#bpawn8
+bpawn8 = pawn()
+bpawn8.startpos = chess_board[1][7]
+
 def sendtopos():
-    gameboard.blit(chessimg, (0,0))
-    gameboard.blit(pieces['white']['king']['scale'], pieces['white']['king']['startpos'])
-    gameboard.blit(pieces['white']['queen']['scale'], pieces['white']['queen']['startpos'])
-    gameboard.blit(pieces['white']['bishop']['scale'], pieces['white']['bishop']['startpos1'])
-    gameboard.blit(pieces['white']['bishop']['scale'], pieces['white']['bishop']['startpos2'])
-    gameboard.blit(pieces['white']['knight']['scale'], pieces['white']['knight']['startpos1'])
-    gameboard.blit(pieces['white']['knight']['scale'], pieces['white']['knight']['startpos2'])
-    gameboard.blit(pieces['white']['rook']['scale'], pieces['white']['rook']['startpos1'])
-    gameboard.blit(pieces['white']['rook']['scale'], pieces['white']['rook']['startpos2'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos1'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos2'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos3'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos4'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos5'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos6'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos7'])
-    gameboard.blit(pieces['white']['pawn']['scale'], pieces['white']['pawn']['startpos8'])
+    gameboard.blit(imgrenderer.chessimg, (0,0))
+    gameboard.blit(pieces['white']['king']['img'], pieces['white']['king']['startpos'])
+    gameboard.blit(pieces['white']['queen']['img'], pieces['white']['queen']['startpos'])
+    gameboard.blit(pieces['white']['bishop']['img'], pieces['white']['bishop']['startpos1'])
+    gameboard.blit(pieces['white']['bishop']['img'], pieces['white']['bishop']['startpos2'])
+    gameboard.blit(pieces['white']['knight']['img'], pieces['white']['knight']['startpos1'])
+    gameboard.blit(pieces['white']['knight']['img'], pieces['white']['knight']['startpos2'])
+    gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos1'])
+    gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos2'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos1'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos2'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos3'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos4'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos5'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos6'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos7'])
+    gameboard.blit(pieces['white']['pawn']['img'], pieces['white']['pawn']['startpos8'])
     #black pieces temp
-    gameboard.blit(pieces['black']['king']['scale'], pieces['black']['king']['startpos'])
-    gameboard.blit(pieces['black']['queen']['scale'], pieces['black']['queen']['startpos'])
-    gameboard.blit(pieces['black']['bishop']['scale'], pieces['black']['bishop']['startpos1'])
-    gameboard.blit(pieces['black']['bishop']['scale'], pieces['black']['bishop']['startpos2'])
-    gameboard.blit(pieces['black']['knight']['scale'], pieces['black']['knight']['startpos1'])
-    gameboard.blit(pieces['black']['knight']['scale'], pieces['black']['knight']['startpos2'])
-    gameboard.blit(pieces['black']['rook']['scale'], pieces['black']['rook']['startpos1'])
-    gameboard.blit(pieces['black']['rook']['scale'], pieces['black']['rook']['startpos2'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos1'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos2'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos3'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos4'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos5'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos6'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos7'])
-    gameboard.blit(pieces['black']['pawn']['scale'], pieces['black']['pawn']['startpos8'])
+    gameboard.blit(pieces['black']['king']['img'], pieces['black']['king']['startpos'])
+    gameboard.blit(pieces['black']['queen']['img'], pieces['black']['queen']['startpos'])
+    gameboard.blit(pieces['black']['bishop']['img'], pieces['black']['bishop']['startpos1'])
+    gameboard.blit(pieces['black']['bishop']['img'], pieces['black']['bishop']['startpos2'])
+    gameboard.blit(pieces['black']['knight']['img'], pieces['black']['knight']['startpos1'])
+    gameboard.blit(pieces['black']['knight']['img'], pieces['black']['knight']['startpos2'])
+    gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos1'])
+    gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos2'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos1'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos2'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos3'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos4'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos5'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos6'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos7'])
+    gameboard.blit(pieces['black']['pawn']['img'], pieces['black']['pawn']['startpos8'])
     #test rects
     pygame.draw.rect(gameboard, (0,0,255), rect_34)
 sendtopos()
