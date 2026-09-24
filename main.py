@@ -9,6 +9,8 @@ from PieceClasses.pawnclass import pawn
 from PieceClasses.rookclass import rook
 from PieceClasses.queenclass import queen
 from PieceClasses.kingclass import king
+from PieceClasses.bishopclass import bishop
+from PieceClasses.knightclass import knight
 WIDTH = 1000
 HEIGHT = 1000
 gameboard = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -176,7 +178,54 @@ pieces = {
     }
     
 }
-
+#bking1
+bking1 = king()
+bking1.pos = chess_board[0][4]
+bking1.color = 0
+if bking1.color == 0:
+    bking1.img = imgrenderer.bkingimg
+#bqueen1
+bqueen1 = queen()
+bqueen1.pos = chess_board[0][3]
+bqueen1.color = 0
+if bqueen1.color == 0:
+    bqueen1.img = imgrenderer.bqueenimg
+#bbishop1
+bbishop1 = bishop()
+bbishop1.pos = chess_board[0][2]
+bbishop1.color = 0
+if bbishop1.color == 0:
+    bbishop1.img = imgrenderer.bbishopimg
+#bbishop2
+bbishop2 = bishop()
+bbishop2.pos = chess_board[0][5]
+bbishop2.color = 0
+if bbishop2.color == 0:
+    bbishop2.img = imgrenderer.bbishopimg
+#knight1
+bknight1 = knight()
+bknight1.pos = chess_board[0][1]
+bknight1.color = 0
+if bknight1.color == 0:
+    bknight1.img = imgrenderer.bknightimg
+#knight2
+bknight2 = knight()
+bknight2.pos = chess_board[0][6]
+bknight2.color = 0
+if bknight2.color == 0:
+    bknight2.img = imgrenderer.bknightimg
+#rook1
+brook1 = rook()
+brook1.pos = chess_board[0][7]
+brook1.color = 0
+if brook1.color == 0:
+    brook1.img = imgrenderer.brookimg
+#rook2
+brook2 = rook()
+brook2.pos = chess_board[0][0]
+brook2.color = 0
+if brook2.color == 0:
+    brook2.img = imgrenderer.brookimg
 #bpawn1
 bpawn1 = pawn()
 bpawn1.pos = chess_board[1][0]
@@ -225,37 +274,90 @@ if bpawn7.color == 0:
     bpawn7.img = imgrenderer.bpawnimg
 if bpawn8.color == 0:
     bpawn8.img = imgrenderer.bpawnimg
+
+
+
+
+#White
+#bking1
+wking1 = king()
+wking1.pos = chess_board[7][4]
+wking1.color = 1
+if wking1.color == 1:
+    wking1.img = imgrenderer.wkingimg  
+#bqueen1
+wqueen1 = queen()
+wqueen1.pos = chess_board[7][3]
+wqueen1.color = 1
+if wqueen1.color == 1:
+    wqueen1.img = imgrenderer.wqueenimg
+#bbishop1
+wbishop1 = bishop()
+wbishop1.pos = chess_board[7][2]
+wbishop1.color = 1
+if wbishop1.color == 1:
+    wbishop1.img = imgrenderer.wbishopimg
+#bbishop2
+wbishop2 = bishop()
+wbishop2.pos = chess_board[7][5]
+wbishop2.color = 1
+if wbishop2.color == 1:
+    wbishop2.img = imgrenderer.wbishopimg
+#knight1
+wknight1 = knight()
+wknight1.pos = chess_board[7][1]
+wknight1.color = 1
+if wknight1.color == 1:
+    wknight1.img = imgrenderer.wknightimg
+#knight2
+wknight2 = knight()
+wknight2.pos = chess_board[7][6]
+wknight2.color = 1
+if wknight2.color == 1:
+    wknight2.img = imgrenderer.wknightimg
+#rook1
+wrook1 = rook()
+wrook1.pos = chess_board[7][7]
+wrook1.color = 1
+if wrook1.color == 1:
+    wrook1.img = imgrenderer.wrookimg
+#rook2
+wrook2 = rook()
+wrook2.pos = chess_board[7][0]
+wrook2.color = 1
+if wrook2.color == 1:
+    wrook2.img = imgrenderer.wrookimg
 #wpawn1
 wpawn1 = pawn()
-wpawn1.pos = chess_board[1][0]
+wpawn1.pos = chess_board[6][0]
 wpawn1.color = 0
 #wpawn2
 wpawn2 = pawn()
-wpawn2.pos = chess_board[1][1]
+wpawn2.pos = chess_board[6][1]
 wpawn2.color = 0
 #wpawn3
 wpawn3 = pawn()
-wpawn3.pos = chess_board[1][2]
+wpawn3.pos = chess_board[6][2]
 wpawn3.color = 0
 #wpawn4
 wpawn4 = pawn()
-wpawn4.pos = chess_board[1][3]
+wpawn4.pos = chess_board[6][3]
 wpawn4.color = 0
 #wpawn5
 wpawn5 = pawn()
-wpawn5.pos = chess_board[1][4]
+wpawn5.pos = chess_board[6][4]
 wpawn5.color = 0
 #wpawn6
 wpawn6 = pawn()
-wpawn6.pos = chess_board[1][5]
+wpawn6.pos = chess_board[6][5]
 wpawn6.color = 0
 #wpawn7
 wpawn7 = pawn()
-wpawn7.pos = chess_board[1][6]
+wpawn7.pos = chess_board[6][6]
 wpawn7.color = 0
 #wpawn8
 wpawn8 = pawn()
-wpawn8.pos = chess_board[1][7]
+wpawn8.pos = chess_board[6][7]
 wpawn8.color = 0
 if wpawn1.color == 0:
     wpawn1.img = imgrenderer.wpawnimg
@@ -275,14 +377,14 @@ if wpawn8.color == 0:
     wpawn8.img = imgrenderer.wpawnimg
 def sendtopos():
     gameboard.blit(imgrenderer.chessimg, (0,0))
-    gameboard.blit(pieces['white']['king']['img'], pieces['white']['king']['startpos'])
-    gameboard.blit(pieces['white']['queen']['img'], pieces['white']['queen']['startpos'])
-    gameboard.blit(pieces['white']['bishop']['img'], pieces['white']['bishop']['startpos1'])
-    gameboard.blit(pieces['white']['bishop']['img'], pieces['white']['bishop']['startpos2'])
-    gameboard.blit(pieces['white']['knight']['img'], pieces['white']['knight']['startpos1'])
-    gameboard.blit(pieces['white']['knight']['img'], pieces['white']['knight']['startpos2'])
-    gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos1'])
-    gameboard.blit(pieces['white']['rook']['img'], pieces['white']['rook']['startpos2'])
+    gameboard.blit(wking1.img, wking1.pos)
+    gameboard.blit(wqueen1.img, wqueen1.pos)
+    gameboard.blit(wbishop1.img, wbishop1.pos)
+    gameboard.blit(wbishop2.img, wbishop2.pos)
+    gameboard.blit(wknight1.img, wknight1.pos)
+    gameboard.blit(wknight2.img, wknight2.pos)
+    gameboard.blit(wrook1.img, wrook1.pos)
+    gameboard.blit(wrook2.img, wrook2.pos)
     gameboard.blit(wpawn1.img, wpawn1.pos)
     gameboard.blit(wpawn2.img, wpawn2.pos)
     gameboard.blit(wpawn3.img, wpawn3.pos)
@@ -292,14 +394,14 @@ def sendtopos():
     gameboard.blit(wpawn7.img, wpawn7.pos)
     gameboard.blit(wpawn8.img, wpawn8.pos)
     #black pieces temp
-    gameboard.blit(pieces['black']['king']['img'], pieces['black']['king']['startpos'])
-    gameboard.blit(pieces['black']['queen']['img'], pieces['black']['queen']['startpos'])
-    gameboard.blit(pieces['black']['bishop']['img'], pieces['black']['bishop']['startpos1'])
-    gameboard.blit(pieces['black']['bishop']['img'], pieces['black']['bishop']['startpos2'])
-    gameboard.blit(pieces['black']['knight']['img'], pieces['black']['knight']['startpos1'])
-    gameboard.blit(pieces['black']['knight']['img'], pieces['black']['knight']['startpos2'])
-    gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos1'])
-    gameboard.blit(pieces['black']['rook']['img'], pieces['black']['rook']['startpos2'])
+    gameboard.blit(bking1.img, bking1.pos)
+    gameboard.blit(bqueen1.img, bqueen1.pos)
+    gameboard.blit(bbishop1.img, bbishop1.pos)
+    gameboard.blit(bbishop2.img, bbishop2.pos)
+    gameboard.blit(bknight1.img, bknight1.pos)
+    gameboard.blit(bknight2.img, bknight2.pos)
+    gameboard.blit(brook1.img, brook1.pos)
+    gameboard.blit(brook2.img, brook2.pos)
     gameboard.blit(bpawn1.img, bpawn1.pos)
     gameboard.blit(bpawn2.img, bpawn2.pos)
     gameboard.blit(bpawn3.img, bpawn3.pos)
@@ -311,6 +413,7 @@ def sendtopos():
     #test rects
     pygame.draw.rect(gameboard, (0,0,255), rect_34)
     print(chess_board)
+    print(bpawn1.pos)
 sendtopos()
 while running:
     for event in pygame.event.get():
