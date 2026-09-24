@@ -1,5 +1,6 @@
 import pygame, sys, math, time, badoptionerror
 from test import testilligalmove
+from main import chess_board
 from Piec
 def illegalmove():
     if testilligalmove:

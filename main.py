@@ -29,15 +29,32 @@ chess_board = [
     [None, None, None, None, None, None, None, None],
     [None, None, None, None, None, None, None, None],
 ]
+chess_data = [
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None]
+]
+selected_piece = []
 
 #pos
-for board_y in range(8):
-    for board_x in range(8):
+for board_x in range(8):
+    for board_y in range(8):
         square_y = 13 + (125 * board_y)
         square_x = 13 + (125 * board_x)
 
         chess_board[board_y][board_x] = (square_x, square_y)
+#datarenderstart
+brook = ['black', 'rook']
+def startdatarender():
+    chess_data[0][0] = brook
 
+startdatarender()
+print(f'data: {chess_data}')
 #rects
 rect_00 = pygame.Rect((chess_board[0][0]), (100, 100))
 rect_01 = pygame.Rect((chess_board[0][1]), (100, 100))
