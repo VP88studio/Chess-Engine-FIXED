@@ -11,3 +11,4 @@ class pawn():
         self.startpos = 0
         self.pos = self.startpos
         self.status = "Alive"
+        self.info = ['black', 'pawn']
